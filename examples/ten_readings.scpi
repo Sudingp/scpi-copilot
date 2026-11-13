@@ -1,0 +1,7 @@
+# Ten low-noise DC voltage readings, then check the error queue.
+*RST
+CONF:VOLT:DC 10
+VOLT:NPLC 10
+SAMP:COUN 10
+READ?
+SYST:ERR?

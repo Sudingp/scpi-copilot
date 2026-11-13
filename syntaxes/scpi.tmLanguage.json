@@ -1,0 +1,11 @@
+{
+  "scopeName": "source.scpi",
+  "name": "SCPI",
+  "patterns": [
+    { "name": "comment.line.number-sign.scpi", "match": "#.*$" },
+    { "name": "keyword.other.common.scpi", "match": "\\*[A-Za-z]+\\??" },
+    { "name": "entity.name.function.scpi", "match": ":?[A-Za-z]+(?::[A-Za-z]+)*\\??" },
+    { "name": "constant.numeric.scpi", "match": "[+-]?(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?" },
+    { "name": "punctuation.separator.scpi", "match": "[;,]" }
+  ]
+}

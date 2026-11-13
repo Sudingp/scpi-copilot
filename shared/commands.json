@@ -1,0 +1,39 @@
+{
+  "instrument": "Simulated 6.5-digit digital multimeter (DMM)",
+  "notes": "Uppercase letters are the required short form; lowercase letters are optional. Parts in [ ] may be left out. A trailing ? makes a query.",
+  "commands": [
+    {"pattern": "*IDN", "query": "only", "params": [], "help": "Identify the instrument"},
+    {"pattern": "*RST", "query": "never", "params": [], "help": "Reset to default settings"},
+    {"pattern": "*CLS", "query": "never", "params": [], "help": "Clear the error queue and status"},
+    {"pattern": "*OPC", "query": "only", "params": [], "help": "Returns 1 when pending operations are complete"},
+    {"pattern": "*TRG", "query": "never", "params": [], "help": "Send a bus trigger (TRIGger:SOURce BUS)"},
+    {"pattern": "SYSTem:ERRor[:NEXT]", "query": "only", "params": [], "help": "Read and remove the oldest error"},
+    {"pattern": "CONFigure", "query": "only", "params": [], "help": "Current measurement function and range"},
+    {"pattern": "CONFigure:VOLTage[:DC]", "query": "never", "params": [{"kind": "range", "min": 0.1, "max": 1000, "optional": true}], "help": "Set up DC voltage, range in volts"},
+    {"pattern": "CONFigure:VOLTage:AC", "query": "never", "params": [{"kind": "range", "min": 0.1, "max": 750, "optional": true}], "help": "Set up AC voltage, range in volts"},
+    {"pattern": "CONFigure:CURRent[:DC]", "query": "never", "params": [{"kind": "range", "min": 0.0001, "max": 10, "optional": true}], "help": "Set up DC current, range in amps"},
+    {"pattern": "CONFigure:RESistance", "query": "never", "params": [{"kind": "range", "min": 100, "max": 100000000, "optional": true}], "help": "Set up 2-wire resistance, range in ohms"},
+    {"pattern": "CONFigure:FREQuency", "query": "never", "params": [], "help": "Set up frequency measurement"},
+    {"pattern": "MEASure:VOLTage[:DC]", "query": "only", "params": [{"kind": "range", "min": 0.1, "max": 1000, "optional": true}], "help": "Configure and read one DC voltage"},
+    {"pattern": "MEASure:VOLTage:AC", "query": "only", "params": [{"kind": "range", "min": 0.1, "max": 750, "optional": true}], "help": "Configure and read one AC voltage"},
+    {"pattern": "MEASure:CURRent[:DC]", "query": "only", "params": [{"kind": "range", "min": 0.0001, "max": 10, "optional": true}], "help": "Configure and read one DC current"},
+    {"pattern": "MEASure:RESistance", "query": "only", "params": [{"kind": "range", "min": 100, "max": 100000000, "optional": true}], "help": "Configure and read one resistance"},
+    {"pattern": "MEASure:FREQuency", "query": "only", "params": [], "help": "Configure and read one frequency"},
+    {"pattern": "SAMPle:COUNt", "query": "both", "params": [{"kind": "int", "min": 1, "max": 1000}], "help": "Readings per trigger"},
+    {"pattern": "[SENSe:]VOLTage[:DC]:NPLC", "query": "both", "params": [{"kind": "choice", "values": ["0.02", "0.2", "1", "10", "100", "MINimum", "MAXimum", "DEFault"]}], "help": "Integration time in power-line cycles (slower = less noise)"},
+    {"pattern": "TRIGger:SOURce", "query": "both", "params": [{"kind": "choice", "values": ["IMMediate", "BUS", "EXTernal"]}], "help": "Where triggers come from"},
+    {"pattern": "INITiate[:IMMediate]", "query": "never", "params": [], "help": "Arm the trigger system and start taking readings"},
+    {"pattern": "FETCh", "query": "only", "params": [], "help": "Return readings taken since the last INITiate"},
+    {"pattern": "READ", "query": "only", "params": [], "help": "INITiate then FETCh, using the current configuration"},
+    {"pattern": "DISPlay[:STATe]", "query": "both", "params": [{"kind": "choice", "values": ["ON", "OFF", "1", "0"]}], "help": "Front-panel display on or off"}
+  ],
+  "errors": {
+    "-100": "Command error",
+    "-108": "Parameter not allowed",
+    "-109": "Missing parameter",
+    "-113": "Undefined header",
+    "-222": "Data out of range",
+    "-224": "Illegal parameter value",
+    "-230": "Data corrupt or stale"
+  }
+}

@@ -1,0 +1,709 @@
+{
+ "summary": {
+  "model": "openai/gpt-oss-20b",
+  "requests": 30,
+  "match_pct": 83.3,
+  "match_by_category": {
+   "simple": "10/12",
+   "multi": "5/8",
+   "settings": "3/3",
+   "refuse": "7/7"
+  },
+  "valid_drafts_pct": 91.3,
+  "drafts_needing_repair": 4,
+  "refusals_correct": "7/7",
+  "wrongly_refused": 0,
+  "invented_commands_shipped": 2,
+  "ran_clean_on_instrument": "21/21",
+  "mean_tokens_in": 994,
+  "mean_tokens_out": 307,
+  "median_seconds": 0.937
+ },
+ "results": [
+  {
+   "id": "r01",
+   "request": "What instrument is connected?",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "*IDN?"
+   ],
+   "canonical": [
+    "*IDN?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 113,
+   "seconds": 0.827
+  },
+  {
+   "id": "r02",
+   "request": "Take one DC voltage reading",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "MEASure:VOLTage:DC?"
+   ],
+   "canonical": [
+    "MEASURE:VOLTAGE:DC?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 139,
+   "seconds": 0.926
+  },
+  {
+   "id": "r03",
+   "request": "Measure the resistance",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "MEASure:RESistance?"
+   ],
+   "canonical": [
+    "MEASURE:RESISTANCE?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 864,
+   "tokens_out": 141,
+   "seconds": 0.73
+  },
+  {
+   "id": "r04",
+   "request": "Read the DC current once",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "MEASure:CURRent:DC?"
+   ],
+   "canonical": [
+    "MEASURE:CURRENT:DC?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 294,
+   "seconds": 1.046
+  },
+  {
+   "id": "r05",
+   "request": "Measure AC voltage on the 10 V range",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "MEASure:VOLTage:AC? 10"
+   ],
+   "canonical": [
+    "MEASURE:VOLTAGE:AC? 10"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 870,
+   "tokens_out": 226,
+   "seconds": 0.705
+  },
+  {
+   "id": "r06",
+   "request": "Reset the meter",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "*RST"
+   ],
+   "canonical": [
+    "*RST"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 864,
+   "tokens_out": 76,
+   "seconds": 0.729
+  },
+  {
+   "id": "r07",
+   "request": "Check if there are any errors",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "SYSTem:ERRor?"
+   ],
+   "canonical": [
+    "SYSTEM:ERROR:NEXT?"
+   ],
+   "valid": true,
+   "repaired": true,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 1803,
+   "tokens_out": 419,
+   "seconds": 1.448
+  },
+  {
+   "id": "r08",
+   "request": "Take 10 DC voltage readings",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:VOLTage:DC",
+    "SAMPle:COUNt 10",
+    "READ?"
+   ],
+   "canonical": [
+    "CONFIGURE:VOLTAGE:DC",
+    "SAMPLE:COUNT 10",
+    "READ?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 867,
+   "tokens_out": 236,
+   "seconds": 1.798
+  },
+  {
+   "id": "r09",
+   "request": "Take 20 resistance readings",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:RESistance",
+    "SAMPle:COUNt 20",
+    "INITiate",
+    "FETCh?"
+   ],
+   "canonical": [
+    "CONFIGURE:RESISTANCE",
+    "SAMPLE:COUNT 20",
+    "INITIATE:IMMEDIATE",
+    "FETCH?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 559,
+   "seconds": 1.248
+  },
+  {
+   "id": "r10",
+   "request": "Take 5 low-noise DC voltage readings using 100 power line cycles",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:VOLTage:DC",
+    "SENSe:VOLTage:DC:NPLC 100",
+    "SAMPle:COUNt 5",
+    "READ?"
+   ],
+   "canonical": [
+    "CONFIGURE:VOLTAGE:DC",
+    "SENSE:VOLTAGE:DC:NPLC 100",
+    "SAMPLE:COUNT 5",
+    "READ?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 876,
+   "tokens_out": 735,
+   "seconds": 2.403
+  },
+  {
+   "id": "r11",
+   "request": "Set the integration time to the fastest setting",
+   "category": "settings",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "SENSe:VOLTage:DC:NPLC 0.02"
+   ],
+   "canonical": [
+    "SENSE:VOLTAGE:DC:NPLC 0.02"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 869,
+   "tokens_out": 348,
+   "seconds": 0.869
+  },
+  {
+   "id": "r12",
+   "request": "Turn off the front panel display",
+   "category": "settings",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "DISPlay:STATe OFF"
+   ],
+   "canonical": [
+    "DISPLAY:STATE OFF"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 867,
+   "tokens_out": 131,
+   "seconds": 0.937
+  },
+  {
+   "id": "r13",
+   "request": "Set up for DC current on the 1 amp range",
+   "category": "settings",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:CURRent:DC 1"
+   ],
+   "canonical": [
+    "CONFIGURE:CURRENT:DC 1"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 872,
+   "tokens_out": 307,
+   "seconds": 1.007
+  },
+  {
+   "id": "r14",
+   "request": "Configure DC voltage with the 100 V range and take 3 readings",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:VOLTage:DC 100",
+    "SAMPle:COUNt 3",
+    "INITiate",
+    "FETCh?"
+   ],
+   "canonical": [
+    "CONFIGURE:VOLTAGE:DC 100",
+    "SAMPLE:COUNT 3",
+    "INITIATE:IMMEDIATE",
+    "FETCH?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 875,
+   "tokens_out": 312,
+   "seconds": 0.818
+  },
+  {
+   "id": "r15",
+   "request": "Arm the meter to wait for a software trigger, then trigger it and get the readings",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "TRIGger:SOURce BUS",
+    "INITiate",
+    "TRG",
+    "FETCh?"
+   ],
+   "canonical": [
+    "TRIGGER:SOURCE BUS",
+    "INITIATE:IMMEDIATE",
+    "INVALID TRG",
+    "FETCH?"
+   ],
+   "valid": false,
+   "repaired": true,
+   "problems": [
+    "line 3 \"TRG\": -113, unknown command \"TRG\""
+   ],
+   "match": false,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 1821,
+   "tokens_out": 1033,
+   "seconds": 2.376
+  },
+  {
+   "id": "r16",
+   "request": "What is the current configuration?",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure?"
+   ],
+   "canonical": [
+    "CONFIGURE?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 867,
+   "tokens_out": 100,
+   "seconds": 2.009
+  },
+  {
+   "id": "r17",
+   "request": "How many samples per trigger is it set to?",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "SAMPle:COUNt?"
+   ],
+   "canonical": [
+    "SAMPLE:COUNT?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 871,
+   "tokens_out": 228,
+   "seconds": 0.951
+  },
+  {
+   "id": "r18",
+   "request": "Reset, then measure the frequency",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "*RST",
+    "MEASure:FREQuency?"
+   ],
+   "canonical": [
+    "*RST",
+    "MEASURE:FREQUENCY?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 867,
+   "tokens_out": 143,
+   "seconds": 0.825
+  },
+  {
+   "id": "r19",
+   "request": "Clear the error queue",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "*CLS"
+   ],
+   "canonical": [
+    "*CLS"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 865,
+   "tokens_out": 74,
+   "seconds": 1.063
+  },
+  {
+   "id": "r20",
+   "request": "Measure DC voltage once and then check for errors",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:VOLTage:DC",
+    "READ?",
+    "SYSTem:ERRor?"
+   ],
+   "canonical": [
+    "CONFIGURE:VOLTAGE:DC",
+    "READ?",
+    "SYSTEM:ERROR:NEXT?"
+   ],
+   "valid": true,
+   "repaired": true,
+   "problems": [],
+   "match": false,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 1821,
+   "tokens_out": 936,
+   "seconds": 2.327
+  },
+  {
+   "id": "r21",
+   "request": "Is the last operation complete?",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "OPC?"
+   ],
+   "canonical": [
+    "INVALID OPC?"
+   ],
+   "valid": false,
+   "repaired": true,
+   "problems": [
+    "line 1 \"OPC?\": -113, unknown command \"OPC?\""
+   ],
+   "match": false,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 1783,
+   "tokens_out": 772,
+   "seconds": 1.907
+  },
+  {
+   "id": "r22",
+   "request": "Measure resistance on the 10 kilohm range",
+   "category": "simple",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:RESistance 10000",
+    "MEASure:RESistance?"
+   ],
+   "canonical": [
+    "CONFIGURE:RESISTANCE 10000",
+    "MEASURE:RESISTANCE?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": false,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 871,
+   "tokens_out": 204,
+   "seconds": 0.594
+  },
+  {
+   "id": "r23",
+   "request": "Take the maximum number of DC voltage samples",
+   "category": "multi",
+   "should_refuse": false,
+   "refused": false,
+   "script": [
+    "CONFigure:VOLTage:DC 1000",
+    "SAMPle:COUNt 1000",
+    "INITiate",
+    "FETCh?"
+   ],
+   "canonical": [
+    "CONFIGURE:VOLTAGE:DC 1000",
+    "SAMPLE:COUNT 1000",
+    "INITIATE:IMMEDIATE",
+    "FETCH?"
+   ],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": false,
+   "ran_clean": true,
+   "run_errors": [],
+   "tokens_in": 869,
+   "tokens_out": 438,
+   "seconds": 1.477
+  },
+  {
+   "id": "r24",
+   "request": "Output 5 volts on the front terminals",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument is a digital multimeter and does not have the capability to output or source voltage. It can only measure electrical quantities.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 869,
+   "tokens_out": 149,
+   "seconds": 0.765
+  },
+  {
+   "id": "r25",
+   "request": "Set the current limit to 100 mA",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument is a digital multimeter and does not support setting a current limit or sourcing current. It can only measure current, not limit it.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 870,
+   "tokens_out": 353,
+   "seconds": 0.942
+  },
+  {
+   "id": "r26",
+   "request": "Run a self-calibration",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument does not support self-calibration commands.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 227,
+   "seconds": 0.532
+  },
+  {
+   "id": "r27",
+   "request": "Save the readings to a USB drive",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument does not support saving readings to a USB drive; no command available for that operation.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 868,
+   "tokens_out": 144,
+   "seconds": 0.833
+  },
+  {
+   "id": "r28",
+   "request": "Change the instrument's IP address to 192.168.1.50",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument does not support IP address configuration.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 876,
+   "tokens_out": 146,
+   "seconds": 0.702
+  },
+  {
+   "id": "r29",
+   "request": "Measure 4-wire resistance",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "The instrument does not support 4-wire resistance measurement.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 866,
+   "tokens_out": 122,
+   "seconds": 0.681
+  },
+  {
+   "id": "r30",
+   "request": "Measure capacitance",
+   "category": "refuse",
+   "should_refuse": true,
+   "refused": true,
+   "reason": "Capacitance measurement not supported by this instrument.",
+   "script": [],
+   "canonical": [],
+   "valid": true,
+   "repaired": false,
+   "problems": [],
+   "match": true,
+   "ran_clean": null,
+   "run_errors": [],
+   "tokens_in": 864,
+   "tokens_out": 104,
+   "seconds": 0.839
+  }
+ ]
+}

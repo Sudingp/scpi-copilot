@@ -1,0 +1,4 @@
+# Open this file to see the squiggles. Nothing in it is sent: Run Script refuses invalid scripts.
+MEAS:VOLTS?
+SAMP:COUN 0
+SOUR:VOLT 5

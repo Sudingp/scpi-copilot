@@ -1,0 +1,41 @@
+{
+  "_comment": "Checked by both the TypeScript validator and the Python simulator tests, so they agree.",
+  "valid": [
+    ["*IDN?", "*IDN?"],
+    ["*rst", "*RST"],
+    ["MEAS:VOLT:DC?", "MEASURE:VOLTAGE:DC?"],
+    ["meas:volt?", "MEASURE:VOLTAGE:DC?"],
+    ["MEASure:VOLTage:DC? 10", "MEASURE:VOLTAGE:DC? 10"],
+    ["MEAS:VOLT? 1.0E1", "MEASURE:VOLTAGE:DC? 10"],
+    ["CONF:VOLT:AC 7.5", "CONFIGURE:VOLTAGE:AC 7.5"],
+    ["CONF:RES AUTO", "CONFIGURE:RESISTANCE AUTO"],
+    ["conf:curr max", "CONFIGURE:CURRENT:DC MAXIMUM"],
+    ["SAMP:COUN 10", "SAMPLE:COUNT 10"],
+    ["SAMP:COUN?", "SAMPLE:COUNT?"],
+    ["VOLT:NPLC 10", "SENSE:VOLTAGE:DC:NPLC 10"],
+    ["SENS:VOLT:DC:NPLC 0.2", "SENSE:VOLTAGE:DC:NPLC 0.2"],
+    ["TRIG:SOUR BUS", "TRIGGER:SOURCE BUS"],
+    ["trig:sour imm", "TRIGGER:SOURCE IMMEDIATE"],
+    ["INIT", "INITIATE:IMMEDIATE"],
+    ["FETC?", "FETCH?"],
+    ["READ?", "READ?"],
+    ["SYST:ERR?", "SYSTEM:ERROR:NEXT?"],
+    [":DISP OFF", "DISPLAY:STATE OFF"],
+    ["CONF?", "CONFIGURE?"]
+  ],
+  "invalid": [
+    ["MEAS:VOLTS?", -113],
+    ["SOUR:VOLT 5", -113],
+    ["*IDN", -113],
+    ["READ", -113],
+    ["INIT?", -113],
+    ["SAMP:COUN", -109],
+    ["SAMP:COUN 0", -222],
+    ["SAMP:COUN 2.5", -224],
+    ["SAMP:COUN 1,2", -108],
+    ["VOLT:NPLC 3", -224],
+    ["TRIG:SOUR SOFTWARE", -224],
+    ["CONF:VOLT 5000", -222],
+    ["CONF:VOLT ten", -224]
+  ]
+}

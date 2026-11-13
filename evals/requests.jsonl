@@ -1,0 +1,30 @@
+{"id": "r01", "request": "What instrument is connected?", "category": "simple", "gold": [["*IDN?"]]}
+{"id": "r02", "request": "Take one DC voltage reading", "category": "simple", "gold": [["MEASURE:VOLTAGE:DC?"]]}
+{"id": "r03", "request": "Measure the resistance", "category": "simple", "gold": [["MEASURE:RESISTANCE?"]]}
+{"id": "r04", "request": "Read the DC current once", "category": "simple", "gold": [["MEASURE:CURRENT:DC?"]]}
+{"id": "r05", "request": "Measure AC voltage on the 10 V range", "category": "simple", "gold": [["MEASURE:VOLTAGE:AC? 10"]]}
+{"id": "r06", "request": "Reset the meter", "category": "simple", "gold": [["*RST"]]}
+{"id": "r07", "request": "Check if there are any errors", "category": "simple", "gold": [["SYSTEM:ERROR:NEXT?"]]}
+{"id": "r08", "request": "Take 10 DC voltage readings", "category": "multi", "gold": [["CONFIGURE:VOLTAGE:DC", "SAMPLE:COUNT 10", "READ?"], ["CONFIGURE:VOLTAGE:DC", "SAMPLE:COUNT 10", "INITIATE:IMMEDIATE", "FETCH?"]]}
+{"id": "r09", "request": "Take 20 resistance readings", "category": "multi", "gold": [["CONFIGURE:RESISTANCE", "SAMPLE:COUNT 20", "READ?"], ["CONFIGURE:RESISTANCE", "SAMPLE:COUNT 20", "INITIATE:IMMEDIATE", "FETCH?"]]}
+{"id": "r10", "request": "Take 5 low-noise DC voltage readings using 100 power line cycles", "category": "multi", "gold": [["CONFIGURE:VOLTAGE:DC", "SENSE:VOLTAGE:DC:NPLC 100", "SAMPLE:COUNT 5", "READ?"], ["CONFIGURE:VOLTAGE:DC", "SAMPLE:COUNT 5", "SENSE:VOLTAGE:DC:NPLC 100", "READ?"]]}
+{"id": "r11", "request": "Set the integration time to the fastest setting", "category": "settings", "gold": [["SENSE:VOLTAGE:DC:NPLC MINIMUM"], ["SENSE:VOLTAGE:DC:NPLC 0.02"]]}
+{"id": "r12", "request": "Turn off the front panel display", "category": "settings", "gold": [["DISPLAY:STATE OFF"], ["DISPLAY:STATE 0"]]}
+{"id": "r13", "request": "Set up for DC current on the 1 amp range", "category": "settings", "gold": [["CONFIGURE:CURRENT:DC 1"]]}
+{"id": "r14", "request": "Configure DC voltage with the 100 V range and take 3 readings", "category": "multi", "gold": [["CONFIGURE:VOLTAGE:DC 100", "SAMPLE:COUNT 3", "READ?"], ["CONFIGURE:VOLTAGE:DC 100", "SAMPLE:COUNT 3", "INITIATE:IMMEDIATE", "FETCH?"]]}
+{"id": "r15", "request": "Arm the meter to wait for a software trigger, then trigger it and get the readings", "category": "multi", "gold": [["TRIGGER:SOURCE BUS", "INITIATE:IMMEDIATE", "*TRG", "FETCH?"]]}
+{"id": "r16", "request": "What is the current configuration?", "category": "simple", "gold": [["CONFIGURE?"]]}
+{"id": "r17", "request": "How many samples per trigger is it set to?", "category": "simple", "gold": [["SAMPLE:COUNT?"]]}
+{"id": "r18", "request": "Reset, then measure the frequency", "category": "multi", "gold": [["*RST", "MEASURE:FREQUENCY?"]]}
+{"id": "r19", "request": "Clear the error queue", "category": "simple", "gold": [["*CLS"]]}
+{"id": "r20", "request": "Measure DC voltage once and then check for errors", "category": "multi", "gold": [["MEASURE:VOLTAGE:DC?", "SYSTEM:ERROR:NEXT?"]]}
+{"id": "r21", "request": "Is the last operation complete?", "category": "simple", "gold": [["*OPC?"]]}
+{"id": "r22", "request": "Measure resistance on the 10 kilohm range", "category": "simple", "gold": [["MEASURE:RESISTANCE? 10000"]]}
+{"id": "r23", "request": "Take the maximum number of DC voltage samples", "category": "multi", "gold": [["CONFIGURE:VOLTAGE:DC", "SAMPLE:COUNT MAXIMUM", "READ?"], ["CONFIGURE:VOLTAGE:DC", "SAMPLE:COUNT 1000", "READ?"]]}
+{"id": "r24", "request": "Output 5 volts on the front terminals", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r25", "request": "Set the current limit to 100 mA", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r26", "request": "Run a self-calibration", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r27", "request": "Save the readings to a USB drive", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r28", "request": "Change the instrument's IP address to 192.168.1.50", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r29", "request": "Measure 4-wire resistance", "category": "refuse", "gold": {"refuse": true}}
+{"id": "r30", "request": "Measure capacitance", "category": "refuse", "gold": {"refuse": true}}

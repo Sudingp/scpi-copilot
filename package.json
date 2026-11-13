@@ -1,0 +1,51 @@
+{
+  "name": "scpi-copilot",
+  "displayName": "SCPI Copilot",
+  "description": "Write, check, generate (with an LLM) and run SCPI scripts for bench instruments from VS Code.",
+  "version": "0.1.0",
+  "publisher": "sudingp",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/Sudingp/scpi-copilot" },
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Programming Languages", "Linters", "Other"],
+  "main": "./out/extension.js",
+  "activationEvents": ["onLanguage:scpi"],
+  "contributes": {
+    "languages": [{ "id": "scpi", "aliases": ["SCPI"], "extensions": [".scpi"],
+                    "configuration": "./language-configuration.json" }],
+    "grammars": [{ "language": "scpi", "scopeName": "source.scpi", "path": "./syntaxes/scpi.tmLanguage.json" }],
+    "commands": [
+      { "command": "scpi.connect", "title": "SCPI: Connect to Instrument" },
+      { "command": "scpi.disconnect", "title": "SCPI: Disconnect" },
+      { "command": "scpi.sendCommand", "title": "SCPI: Send Command" },
+      { "command": "scpi.runScript", "title": "SCPI: Run Script" },
+      { "command": "scpi.generate", "title": "SCPI: Generate Script from Request" },
+      { "command": "scpi.setApiKey", "title": "SCPI: Set LLM API Key" }
+    ],
+    "configuration": {
+      "title": "SCPI Copilot",
+      "properties": {
+        "scpi.host": { "type": "string", "default": "127.0.0.1", "description": "Instrument address" },
+        "scpi.port": { "type": "number", "default": 5025, "description": "Raw SCPI socket port (5025 on most LXI instruments)" },
+        "scpi.timeoutMs": { "type": "number", "default": 2000, "description": "How long to wait for a query reply" },
+        "scpi.llm.baseUrl": { "type": "string", "default": "https://api.groq.com/openai/v1", "description": "OpenAI-compatible API base URL" },
+        "scpi.llm.model": { "type": "string", "default": "openai/gpt-oss-20b", "description": "Model used to draft scripts" }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "tsc -p . && mocha \"out/test/**/*.test.js\"",
+    "eval": "tsc -p . && node out/eval/run.js",
+    "package": "tsc -p . && vsce package"
+  },
+  "devDependencies": {
+    "@types/mocha": "10.0.10",
+    "@types/node": "20.19.43",
+    "@types/vscode": "1.90.0",
+    "@vscode/vsce": "3.9.2",
+    "mocha": "10.8.2",
+    "typescript": "5.9.3"
+  }
+}

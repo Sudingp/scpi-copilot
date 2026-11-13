@@ -1,0 +1,13 @@
+src/**
+instrument/**
+evals/**
+**/*.map
+node_modules/**
+.vscode/**
+*.vsix
+.pytest_cache/**
+out/test/**
+out/eval/**
+.gitignore
+pytest.ini
+tsconfig.json
